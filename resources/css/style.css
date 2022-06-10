@@ -1,0 +1,10 @@
+.todo{
+  background-color: navy;
+  width: 100%;
+  height: 100%;
+}
+
+.todo__list{
+  margin: 0 auto;
+  background-color: white;
+}

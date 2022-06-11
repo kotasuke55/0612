@@ -38,15 +38,21 @@
       @foreach($items as $item)
       <tr>
         <td> {{$item->created_at}}</td>
-        <td> <input type="text" value="{{$item->content}}" class="content" ></td>
+        <td> <input type="text" value="{{$item->content}}" class="content" name="content"></td>
         <td>
-          <form action="/todo/update" method="post">
+          <form action="/todo/update" method="post" >
             @csrf
-          <button>更新</button></form>
+            <input type="hidden" value="{{$item->content}}" class="content" name="content">
+          <button>更新</button>
+        </form>
         </td>
         <td>
-          <form action="/todo/delete" method="post">@csrf
-            <button>削除</button></form></td>
+          <form action="/todo/delete" method="post">
+            @csrf
+            <input type="hidden" value="{{$item->content}}" class="content" name="content">
+            <button>削除</button>
+          </form>
+        </td>
       </tr>
       @endforeach
     </table>

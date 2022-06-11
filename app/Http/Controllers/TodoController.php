@@ -22,11 +22,12 @@ class TodoController extends Controller
     }
     public function update(Request $request)
     {
+        
         $this->validate($request,Todo::$rules);
-        $form = $request->all();
-        unset($form['_token']);
-        Todo::where('id',$request->id)->update($form);
-        return redirect('/');
+        $form = $request->content;
+        
+        Todo::where('content', $request->content)->update($form);
+        return redirect('/',);
     }
     public function remove(Request $request)
     {

@@ -38,11 +38,13 @@
       @foreach($items as $item)
       <tr>
         <td> {{$item->created_at}}</td>
-        <td> <input type="text" value="{{$item->content}}" class="content" name="content"></td>
+        <td>  
+          <form action="/todo/update" method="post">
+              @csrf
+              <input type="text" value="{{$item->content}}" class="content" name="content">
+              
+        </td>
         <td>
-          <form action="/todo/update" method="post" >
-            @csrf
-            <input type="hidden" value="{{$item->content}}" class="content" name="content">
           <button>更新</button>
         </form>
         </td>

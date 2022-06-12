@@ -26,8 +26,9 @@ class TodoController extends Controller
         $form = $request->all();
         unset($form['_token']);
         
-        dd($form);
-        return redirect('/',);
+        Todo::where('content','!=','null')->update($form);      
+        
+        return redirect('/');
     }
     public function remove(Request $request)
     {

@@ -1,7 +1,9 @@
+body{
+  background-color: navy !important;
+}
+
 .todo{
-  background-color: navy;
   padding-top: 150px;
-  height: 550px;
 }
 
 .todo__list {
@@ -20,25 +22,37 @@
 
 }
 
+.todotable{
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  width: 100%;
+}
+
+.form{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+
 .create {
   width: 80%;
  padding: 10px 0;
 }
 
 .create__btn {
-  margin-left: 30px;
+  width: 10%;
+  
   padding: 10px 15px;
-  border: 1px solid rgb(246, 52, 191);
+  border: 2px solid rgb(246, 52, 191);
   background-color: white;
   color: rgb(245, 64, 194);
   font-weight: bold;
   border-radius: 5px;
-  margin-bottom:30px ;
+  
 }
 
-th,td{
-  width:20%;
-}
+
 
 th{
   height: 50px;
@@ -50,5 +64,24 @@ td{
 
 .content{
   width: 95%;
+  padding: 5px 0;
 }
 
+
+
+
+.update__btn{
+  color:orange;
+  background-color: white;
+  border: 2px solid orange;
+  border-radius: 5px;
+  padding: 5px 15px;
+}
+
+.delete__btn{
+   color: aqua;
+    background-color: white;
+    border: 2px solid aqua;
+    border-radius: 5px;
+    padding: 5px 15px;
+}

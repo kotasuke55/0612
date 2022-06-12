@@ -23,36 +23,36 @@
 <div class="todo">
   <div class="todo__list">
     <p class="todo__ttl">Todo List</p>
-    <form action="/todo/create" method="post">
+    <form action="/todo/create" method="post" class="form">
       @csrf
       <input type="text" name="content" class="create">
       <button class="create__btn">追加</button>
     </form>
-    <table>
+    <table class="todotable">
       <tr>
-        <th>作成日</th>
-        <th>タスク名</th>
-        <th>更新</th>
-        <th>削除</th>
+        <th width="25%">作成日</th>
+        <th width="50%">タスク名</th>
+        <th width="10%">更新</th>
+        <th width="10%">削除</th>
       </tr>
       @foreach($items as $item)
       <tr>
-        <td> {{$item->created_at}}</td>
-        <td>  
+        <td > {{$item->created_at}}</td>
+        <td >  
           <form action="/todo/update" method="post">
               @csrf
               <input type="text" value="{{$item->content}}" class="content" name="content">
-              
+              <input type="hidden" value="{{$item->id}}" name="id">
         </td>
-        <td>
-          <button>更新</button>
+        <td >
+          <button class="update__btn">更新</button>
         </form>
         </td>
         <td>
           <form action="/todo/delete" method="post">
             @csrf
-            <input type="hidden" value="{{$item->id}}" class="content" name="content">
-            <button>削除</button>
+            <input type="hidden" value="{{$item->id}}" class="content" name="id">
+            <button class="delete__btn">削除</button>
           </form>
         </td>
       </tr>

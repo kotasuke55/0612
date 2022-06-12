@@ -11,6 +11,7 @@ class TodoController extends Controller
     public function index()
     {
         $items = Todo::all();
+        
          return view('index', ['items'=>$items]);
     }
     public function create(Request $request)
@@ -24,8 +25,10 @@ class TodoController extends Controller
     {
         
         $this->validate($request,Todo::$rules);
-        $form = $request->content;
-        
+        $form = [
+            $request->content
+        ];
+        unset($form['_token']);
         Todo::where('content', $request->content)->update($form);
         return redirect('/',);
     }

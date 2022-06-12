@@ -49,7 +49,7 @@
         <td>
           <form action="/todo/delete" method="post">
             @csrf
-            <input type="hidden" value="{{$item->content}}" class="content" name="content">
+            <input type="hidden" value="{{$item->id}}" class="content" name="id">
             <button>削除</button>
           </form>
         </td>

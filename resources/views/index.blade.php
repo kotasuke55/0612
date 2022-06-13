@@ -23,6 +23,9 @@
 <div class="todo">
   <div class="todo__list">
     <p class="todo__ttl">Todo List</p>
+    @error('content')
+    <li>{{$message}}</li>
+    @enderror
     <form action="/todo/create" method="post" class="form">
       @csrf
       <input type="text" name="content" class="create">
